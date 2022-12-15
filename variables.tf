@@ -60,6 +60,7 @@ variable "allow_all_egress" {
 variable "rules" {
   type = list(object({
     key                      = string
+    type                     = string
     from_port                = number
     to_port                  = number
     protocol                 = string
