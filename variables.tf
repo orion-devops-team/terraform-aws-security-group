@@ -58,8 +58,18 @@ variable "allow_all_egress" {
 }
 
 variable "rules" {
-  type        = list(any)
-  default     = []
+  type        = list(object({
+    from_port        = number
+    to_port          = number
+    protocol         = string
+    description      = string
+    cidr_blocks      = list(string)
+    ipv6_cidr_blocks = list(string)
+    prefix_list_ids  = list(string)
+    security_groups  = list(string)
+    self             = bool
+  }))
+  default = []
   description = <<-EOT
     A list of Security Group rule objects. All elements of a list must be exactly the same type;
     use `rules_map` if you want to supply multiple lists of different types.
