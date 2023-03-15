@@ -119,7 +119,6 @@ variable "rule_matrix" {
   #    }]
 
   type        = list(object({
-    key                       = string
     source_security_group_ids = list(string)
     cidr_blocks               = list(string)
     rules                     = list(object({
