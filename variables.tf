@@ -118,7 +118,19 @@ variable "rule_matrix" {
   #      description = "Allow HTTPS ingress"
   #    }]
 
-  type        = any
+  type        = list(object({
+    key                       = string
+    source_security_group_ids = list(string)
+    cidr_blocks               = list(string)
+    rules                     = list(object({
+      key                      = string
+      type                     = string
+      from_port                = number
+      to_port                  = number
+      protocol                 = string
+      description              = string
+    }))
+  }))
   default     = []
   description = <<-EOT
     A convenient way to apply the same set of rules to a set of subjects. See README for details.
@@ -163,4 +175,3 @@ variable "inline_rules_enabled" {
     See [this post](https://github.com/hashicorp/terraform-provider-aws/pull/9032#issuecomment-639545250) for details on the difference between inline rules and rule resources.
     EOT
 }
-
