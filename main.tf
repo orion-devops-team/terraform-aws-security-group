@@ -45,7 +45,6 @@ resource "aws_security_group" "default" {
       protocol         = ingress.value.protocol
       description      = ingress.value.description
       cidr_blocks      = ingress.value.cidr_blocks
-      ipv6_cidr_blocks = ingress.value.ipv6_cidr_blocks
       prefix_list_ids  = ingress.value.prefix_list_ids
       security_groups  = ingress.value.security_groups
       self             = ingress.value.self
@@ -60,7 +59,6 @@ resource "aws_security_group" "default" {
       protocol         = egress.value.protocol
       description      = egress.value.description
       cidr_blocks      = egress.value.cidr_blocks
-      ipv6_cidr_blocks = egress.value.ipv6_cidr_blocks
       prefix_list_ids  = egress.value.prefix_list_ids
       security_groups  = egress.value.security_groups
       self             = egress.value.self
@@ -105,7 +103,6 @@ resource "aws_security_group" "cbd" {
       protocol         = ingress.value.protocol
       description      = ingress.value.description
       cidr_blocks      = ingress.value.cidr_blocks
-      ipv6_cidr_blocks = ingress.value.ipv6_cidr_blocks
       prefix_list_ids  = ingress.value.prefix_list_ids
       security_groups  = ingress.value.security_groups
       self             = ingress.value.self
@@ -120,7 +117,6 @@ resource "aws_security_group" "cbd" {
       protocol         = egress.value.protocol
       description      = egress.value.description
       cidr_blocks      = egress.value.cidr_blocks
-      ipv6_cidr_blocks = egress.value.ipv6_cidr_blocks
       prefix_list_ids  = egress.value.prefix_list_ids
       security_groups  = egress.value.security_groups
       self             = egress.value.self
@@ -147,7 +143,6 @@ resource "aws_security_group_rule" "keyed" {
   protocol         = each.value.protocol
   description      = each.value.description
   cidr_blocks      = length(each.value.cidr_blocks) == 0 ? null : each.value.cidr_blocks
-  ipv6_cidr_blocks = length(each.value.ipv6_cidr_blocks) == 0 ? null : each.value.ipv6_cidr_blocks
   prefix_list_ids  = length(each.value.prefix_list_ids) == 0 ? [] : each.value.prefix_list_ids
   self             = each.value.self
 
