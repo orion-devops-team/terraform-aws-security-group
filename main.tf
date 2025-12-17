@@ -35,7 +35,7 @@ resource "aws_security_group" "default" {
   vpc_id      = var.vpc_id
   tags        = merge(module.this.tags, try(length(var.security_group_name[0]), 0) > 0 ? { Name = var.security_group_name[0] } : {})
 
-  revoke_rules_on_delete = var.revoke_rules_on_delete
+  revoke_rules_on_delete = true
 
   dynamic "ingress" {
     for_each = local.all_ingress_rules
@@ -92,7 +92,7 @@ resource "aws_security_group" "cbd" {
   vpc_id      = var.vpc_id
   tags        = merge(module.this.tags, try(length(var.security_group_name[0]), 0) > 0 ? { Name = var.security_group_name[0] } : {})
 
-  revoke_rules_on_delete = var.revoke_rules_on_delete
+  revoke_rules_on_delete = true
 
   dynamic "ingress" {
     for_each = local.all_ingress_rules
