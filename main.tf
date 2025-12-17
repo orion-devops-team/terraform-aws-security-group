@@ -73,7 +73,6 @@ resource "aws_security_group" "default" {
   ##
   ## end of duplicate block
   ########################################################################
-  revoke_rules_on_delete = true
 }
 
 resource "aws_security_group" "cbd" {
@@ -132,7 +131,6 @@ resource "aws_security_group" "cbd" {
   ## end of duplicate block
   ########################################################################
 
-  revoke_rules_on_delete = true
 }
 
 resource "aws_security_group_rule" "keyed" {
