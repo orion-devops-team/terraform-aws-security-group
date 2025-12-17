@@ -142,7 +142,7 @@ variable "security_group_delete_timeout" {
 
 variable "revoke_rules_on_delete" {
   type        = bool
-  default     = true
+  default     = false
   description = <<-EOT
     Instruct Terraform to revoke all of the Security Group's attached ingress and egress rules before deleting
     the security group itself. This is normally not needed.
