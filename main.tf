@@ -87,6 +87,7 @@ resource "aws_security_group" "cbd" {
   name_prefix = concat(var.security_group_name, ["${module.this.id}${module.this.delimiter}"])[0]
   lifecycle {
     create_before_destroy = true
+    ignore_changes = [ egress ]
   }
 
   ########################################################################
@@ -135,11 +136,6 @@ resource "aws_security_group" "cbd" {
   ##
   ## end of duplicate block
   ########################################################################
-  lifecycle {
-    ignore_changes = [
-      egress, # Esto congela las reglas de salida tal cual están en AWS
-    ]
-  }
 }
 
 resource "aws_security_group_rule" "keyed" {
