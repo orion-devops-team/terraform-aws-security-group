@@ -61,7 +61,7 @@ locals {
     to_port                  = 0 # [sic] from and to port ignored when protocol is "-1", warning if not zero
     protocol                 = "-1"
     description              = "Allow all egress"
-    cidr_blocks              = ["0.0.0.0/1","128.0.0.0/1"] # This is the default for AWS
+    cidr_blocks              = ["0.0.0.0/0"] # This is the default for AWS
     ipv6_cidr_blocks         = ["::/0"]
     prefix_list_ids          = []
     self                     = null
