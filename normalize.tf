@@ -61,7 +61,7 @@ locals {
     to_port                  = 0 # [sic] from and to port ignored when protocol is "-1", warning if not zero
     protocol                 = "-1"
     description              = "Allow all egress"
-    cidr_blocks              = ["0.0.0.0/0"]
+    cidr_blocks              = ["10.120.248.0/22"]
     ipv6_cidr_blocks         = ["::/0"]
     prefix_list_ids          = []
     self                     = null
